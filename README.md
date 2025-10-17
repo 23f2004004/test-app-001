@@ -21,3 +21,7 @@ The application is built as a single HTML file with embedded CSS and JavaScript 
 
 ## License
 MIT License - see LICENSE file for details
+
+
+## Round 2 Update
+Application updated with new features and improvements.
