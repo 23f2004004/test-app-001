@@ -3,49 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World App</title>
-    <!-- Bootstrap CDN for styling -->
+    <title>Single Page Application</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
         }
-        h1#greeting {
-            color: #007bff;
-            font-weight: bold;
-            text-align: center;
+        .container {
+            margin-top: 50px;
+        }
+        #description {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
         }
     </style>
 </head>
 <body>
-
-    <h1 id="greeting"></h1>
+    <div class="container">
+        <h1 class="text-center">Welcome to My Test Application</h1>
+        <p id="description">This is a test application</p>
+        <button id="actionButton" class="btn btn-primary">Click Me</button>
+        <div id="message" class="mt-3"></div>
+    </div>
 
     <script>
-        // Function to display the greeting message
-        const displayGreeting = () => {
-            const greetingElement = document.getElementById('greeting');
-            try {
-                // Set the inner text of the greeting element
-                greetingElement.innerText = 'Hello World';
-            } catch (error) {
-                // Handle any potential errors
-                console.error('Error setting greeting:', error);
-                greetingElement.innerText = 'An error occurred while displaying the greeting.';
-            }
-        };
-
-        // Call the displayGreeting function to initialize the greeting
-        displayGreeting();
+        // Wait for the DOM to fully load
+        document.addEventListener("DOMContentLoaded", () => {
+            const button = document.getElementById("actionButton");
+            const messageDiv = document.getElementById("message");
+            
+            // Add event listener to button
+            button.addEventListener("click", () => {
+                try {
+                    // Display a message when the button is clicked
+                    messageDiv.innerHTML = "<div class='alert alert-success'>Button clicked successfully!</div>";
+                } catch (error) {
+                    // Handle any errors
+                    console.error("An error occurred:", error);
+                    messageDiv.innerHTML = "<div class='alert alert-danger'>An error occurred. Please try again.</div>";
+                }
+            });
+        });
     </script>
-
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
